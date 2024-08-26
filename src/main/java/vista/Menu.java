@@ -26,7 +26,9 @@ public class Menu {
     public void iniciarMenu() {
         int opcion;
         do {
+            System.out.println("-----------------");
             System.out.println("Bienvenidos al sistema de gestión de clientes de Pastelería Bon Bon Jovi.");
+            System.out.println("-----------------");
             System.out.println("Menú: ");
             System.out.println("1. Listar clientes.");
             System.out.println("2. Agregar clientes");
