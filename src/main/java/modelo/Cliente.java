@@ -1,23 +1,28 @@
 package modelo;
 
+import utilidades.RunValidador;
+
 public class Cliente {
-    //Atributos
+    // Atributos
     private String nombreCliente;
     private String apellidoCliente;
     private String runCliente;
     private String yearCliente;
+    private CategoríaEnum categoría; //Atributo para la categoría
 
-    //Constructores
-
-    public Cliente(String nombreCliente, String apellidoCliente, String runCliente, String yearCliente) {
+    // Constructores
+    public Cliente(String nombreCliente, String apellidoCliente, String runCliente, String yearClient, CategoríaEnum categoría) {
         this.nombreCliente = nombreCliente;
         this.apellidoCliente = apellidoCliente;
-        this.runCliente = runCliente;
+        setRunCliente(runCliente);  // Se usa el setter para validar el RUT
         this.yearCliente = yearCliente;
+        this.categoría = categoría;
     }
 
-    //Getters y setters
+    public Cliente() {
+    }
 
+    // Getters y setters
     public String getNombreCliente() {
         return nombreCliente;
     }
@@ -39,7 +44,16 @@ public class Cliente {
     }
 
     public void setRunCliente(String runCliente) {
-        this.runCliente = runCliente;
+        // Separar el RUN y el dígito verificador
+        String rut = runCliente.substring(0, runCliente.length() - 1);
+        char digitoVerificador = runCliente.charAt(runCliente.length() - 1);
+
+        // Validar el RUN usando el método estático de la clase RunValidator
+        if (RunValidador.verificarRUT(rut, digitoVerificador)) {
+            this.runCliente = runCliente;
+        } else {
+            throw new IllegalArgumentException("El RUN ingresado no es válido.");
+        }
     }
 
     public String getYearCliente() {
@@ -50,8 +64,15 @@ public class Cliente {
         this.yearCliente = yearCliente;
     }
 
-    //Método toString()
+    public CategoríaEnum getCategoria() {
+        return categoría;
+    }
 
+    public void setCategoria(CategoríaEnum categoría) {
+        this.categoría = categoría;
+    }
+
+    // Método toString()
     @Override
     public String toString() {
         return "Cliente{" +
@@ -59,6 +80,7 @@ public class Cliente {
                 ", apellidoCliente='" + apellidoCliente + '\'' +
                 ", runCliente='" + runCliente + '\'' +
                 ", yearCliente='" + yearCliente + '\'' +
+                ", categoría=" + categoría +
                 '}';
     }
 }
