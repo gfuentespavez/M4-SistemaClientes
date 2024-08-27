@@ -68,6 +68,7 @@ public class Menu {
     private void listarClientes() {
         clienteServicio.listarClientes();
     }
+
     //Método para agregar un cliente OK
     private void agregarCliente() {
         String nombre, apellido, run, year = "", categoria;
