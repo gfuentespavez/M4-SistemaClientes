@@ -73,6 +73,8 @@ public class Menu {
         String nombre, apellido, run, year = "", categoria;
         CategoríaEnum categoríaEnum;
 
+        System.out.println("Agregar nuevos clientes a Bon Bon Jovi.");
+        System.out.println("------------------------");
         System.out.print("Ingrese el nombre del cliente: ");
         nombre = sc.nextLine();
 
