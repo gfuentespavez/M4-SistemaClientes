@@ -73,6 +73,7 @@ public class Menu {
         String nombre, apellido, run, year = "", categoria;
         CategoríaEnum categoríaEnum;
 
+        System.out.println("------------------------");
         System.out.println("Agregar nuevos clientes a Bon Bon Jovi.");
         System.out.println("------------------------");
         System.out.print("Ingrese el nombre del cliente: ");
@@ -119,6 +120,9 @@ public class Menu {
         String run;
         boolean runValido = false;
         do {
+            System.out.println("------------------------");
+            System.out.println("Modificar datos de clientes en Bon Bon Jovi.");
+            System.out.println("------------------------");
             System.out.print("Ingrese el RUN del cliente a editar. Sin puntos ni guión y con dígito verificador: ");
             run = sc.nextLine();
             if (isValidRun(run)) {
@@ -167,6 +171,9 @@ public class Menu {
 
 
     private void importarDatos() {
+        System.out.println("------------------------");
+        System.out.println("Importar nuevos clientes a Bon Bon Jovi.");
+        System.out.println("------------------------");
         System.out.print("Ingrese el nombre del archivo CSV para importar: ");
         String nombreArchivoCsv = sc.nextLine();
 
@@ -176,8 +183,12 @@ public class Menu {
     }
 
 
-    //Método exportar datos - PENDING
+    //Método exportar datos
     private void exportarDatos() {
+
+        System.out.println("------------------------");
+        System.out.println("Exportar datos de clientes panadería Bon Bon Jovi.");
+        System.out.println("------------------------");
         System.out.print("Ingrese el nombre para el archivo CSV: ");
         String nombreArchivoCsv = sc.nextLine();
         exportadorCsv.exportar(clienteServicio.getListaClientes(), nombreArchivoCsv);
@@ -191,7 +202,9 @@ public class Menu {
 
 
     private void terminarPrograma() {
-        System.out.println("Programa terminado.");
+        System.out.println("------------------------");
+        System.out.println("¡Hasta luego!");
+        System.out.println("------------------------");
         sc.close();
     }
 
