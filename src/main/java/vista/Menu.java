@@ -218,7 +218,6 @@ public class Menu {
     }
 
     // Método main
-// Método main
     public static void main(String[] args) {
         // Crear instancias de los servicios necesarios
         ClienteServicio clienteServicio = new ClienteServicio(new ArrayList<>()); // Asumiendo que empieza con una lista vacía
